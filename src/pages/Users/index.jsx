@@ -82,7 +82,7 @@ const Users = () => {
 	);
 };
 
-const Spinner = async () => {
+const Spinner = () => {
 	return (
 		<div role='status'>
 			<svg
