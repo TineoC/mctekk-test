@@ -22,6 +22,14 @@ function App() {
 						</ProtectedRoute>
 					}
 				/>
+				<Route
+					path='*'
+					element={
+						<h1 className='font-bold text-2xl text-red-500'>
+							Page not found
+						</h1>
+					}
+				/>
 			</Routes>
 			<Footer />
 		</div>
