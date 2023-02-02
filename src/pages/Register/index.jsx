@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
+import { TokenContext } from "../../context/TokenContext";
 
 const schema = yup
 	.object({
@@ -22,6 +24,9 @@ const schema = yup
 	.required();
 
 const Register = () => {
+	const navigate = useNavigate();
+	const { setToken } = useContext(TokenContext);
+
 	const {
 		register,
 		handleSubmit,
@@ -48,7 +53,8 @@ const Register = () => {
 			return alert("Something bad happened");
 		}
 
-		alert("Register went succesfully");
+		setToken(data.session.token);
+		navigate("/users");
 	};
 
 	return (
